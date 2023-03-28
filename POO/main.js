@@ -1,5 +1,8 @@
 import {Square} from "./Square.js";
-let timer = 3300;
+import {Timer} from "./Timer.js";
+let timer = new Timer();
+timer.toDomElement();
+
 let fps = 1000/60;
 
 let square = new Square();
@@ -20,7 +23,7 @@ squareRed.size = 10;
 squareRed.toElement();
 
 function anim() {
-    timer ++;
+    timer.thick();
     document.getElementById("timerDiv").textContent = Math.floor(timer/60/60) + ':' + (Math.floor(timer/60) % 60);
     square.move();
     squareRed.move();
